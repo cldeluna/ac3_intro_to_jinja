@@ -223,7 +223,7 @@ Comparison between Python and Jinja2 {% %}
 
 ---
 
-# Control Structures - For Loop
+# Control Structures - Loops
 
 For Loop
 ```
@@ -234,8 +234,9 @@ For Loop
 
 ---
 
-# Control Structures - IF/ELIF/ELSE
+# Control Structures - Conditionals
 
+IF/ELIF/ELSE
 
 ```
 {% if ms_int > 8 %}
@@ -311,7 +312,7 @@ What evaluates to False in Jinja2?
 ![fit, right, original](images/False_in_J2vsP.png)
 
 ---
-# Be Careful With Truth
+# Truth may not behave as expected
 
 These are not interchangeable across contexts:
 - In Python code, using true will result in a NameError
@@ -452,12 +453,12 @@ claudiadeluna in ~/ac3_intro_to_jinja/env_examples on main
 
 ---
 
-# [fit] Payload
-# [fit] Data
+# [fit] PAYLOAD
+# [fit] DATA
 
 ---
 
-# Passing Data
+# Passing Data to Templates
 
 Getting the data into your template and rendering can be confusing at first.
 
@@ -539,9 +540,39 @@ Note:  The online tools expected a dictionary and now you know why!
 # [fit] WHITE
 # [fit] SPACE
 
+
 ---
 
-Spaces and Line Feeds can be tricky in Jinja2
+# Spaces and Line Feeds can be Tricky in Jinja2
+
+Control structures can add unwanted whitespace and empty lines.
+Often it will come down to what you can live with and the functional impact of any extraneous whitespace when you push your configs.
+- “One liners” can help
+- Jinja2 has several white space management options
+
+--- 
+# Whitespace control with "-"
+
+The minus sign can be used to control whitespace
+```
+{%- ... %}  Removes whitespace before the tag 
+{% ... -%}   Removes whitespace after the tag 
+{%- ... -%}   Removes whitespace both before and after the tag
+{{- cfg -}} Removes whitespace both before and after the variable
+```
+
+--- 
+
+# Whitespace control with "+"
+
+The plus sign preserves white space which would normally be removed. While its use is less common it can be useful as an override particularly if you set whitespace controls when defining your environment.
+```
+{%+ ... %} Preserve indentation
+```
+
+---
+
+# Whitespace control during Environment defintion
 
 
 ---
@@ -552,6 +583,8 @@ Spaces and Line Feeds can be tricky in Jinja2
 
 # [fit] REAL WORLD
 # [fit] EXAMPLE
+
+
 
 
 ---
