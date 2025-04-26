@@ -79,9 +79,11 @@ Then open up a new PowerShell terminal.
 
 ## What to do with this Repository?
 
-**Download or Clone** the repository and move into the repository directory (unzip if you used the download option) just as you did for the standalone uv_script repository.
+**Download or Clone** the repository and move into the repository directory (unzip if you used the download option).
 
 No virtual environment needs to be built or activated.
+
+Remember to run all scripts and interactive shells with ```uv run```.
 
 
 
