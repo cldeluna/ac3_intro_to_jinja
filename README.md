@@ -2,7 +2,7 @@
 
 Jinja2 primer for the NAF AutoCon3 Templating Workshop [https://networkautomation.forum/autocon3#workshop](https://networkautomation.forum/autocon3#workshop)
 
-![WSC4](images/WSC4.jpg)
+![WSC4](images/WSC4_v2.jpg)
 
 ## Executing the scripts in this repository
 
