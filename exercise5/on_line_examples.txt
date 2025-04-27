@@ -1,0 +1,103 @@
+# White Space
+# https://nebula.packetcoders.io/j2-render/
+# https://j2live.ttl255.com
+
+
+# ---------------------------------------------------------
+On line example 1:
+# ---------------------------------------------------------
+
+# Template:
+
+{% for color, fruit in fruit_colors.items() %}
+  {% if fruit|length <= 5 %}
+Color: {{ color }}, Fruit: {{ fruit }}
+  {% endif %}
+{% endfor %}
+
+
+# Data:
+
+# YAML
+fruit_colors:
+  red: apple
+  orange: orange
+  yellow: banana
+  green: kiwi
+  blue: blueberry
+  purple: grape
+  pink: dragonfruit
+  brown: date
+  white: lychee
+  black: blackberry
+
+ # JSON
+
+ {
+  "fruit_colors": {
+    "red": "apple",
+    "orange": "orange",
+    "yellow": "banana",
+    "green": "kiwi",
+    "blue": "blueberry",
+    "purple": "grape",
+    "pink": "dragonfruit",
+    "brown": "date",
+    "white": "lychee",
+    "black": "blackberry"
+  }
+}
+
+
+# ---------------------------------------------------------
+On line example 1:
+# ---------------------------------------------------------
+
+# Template:
+
+{% for vlan_id, vlan_info in cfg.items() %}
+vlan {{ vlan_id }}
+{% if vlan_info["rspan"] %}
+  name RSPAN-{{ vlan_info["name"] }}
+  remote-span
+{% else %}
+  name {{ vlan_info["name"] }}
+{% endif %}
+{% endfor %}
+
+
+
+# Data:
+
+# YAML
+
+cfg:
+  10:
+    name: "Users"
+    rspan: false
+  20:
+    name: "Servers"
+    rspan: false
+  30:
+    name: "Voice"
+    rspan: false
+  40:
+    name: "Cameras"
+    rspan: false
+  50:
+    name: "Guests"
+    rspan: false
+  60:
+    name: "Monitoring"
+    rspan: true
+
+
+# ---------------------------------------------------------
+On line example 1:
+# ---------------------------------------------------------
+
+# Template:
+
+
+# Data:
+

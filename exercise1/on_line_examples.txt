@@ -1,4 +1,6 @@
 # Copy/Paste for online exercise
+# https://nebula.packetcoders.io/j2-render/
+# https://j2live.ttl255.com
 
 
 On line test 1:
