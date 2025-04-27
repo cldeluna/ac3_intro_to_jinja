@@ -1,0 +1,6 @@
+{% for switch_name, switch in payload["switches"].items() %}
+Switch Deployment Summary:
+- Hostname: {{ switch["hostname"] }}
+- Management IP: {{ switch["management_ip"] }}
+
+{% endfor %}

@@ -1,0 +1,170 @@
+switches:
+  switch-01:
+    hostname: switch-01
+    management_ip: 192.168.1.10/24
+    default_gateway: 192.168.1.1
+    domain_name: example.local
+    dns_servers:
+      - 8.8.8.8
+      - 8.8.4.4
+    ntp_servers:
+      - 192.168.1.100
+      - 192.168.1.101
+    mlag:
+      domain_id: mlag-domain-1
+      peer_address: 192.168.1.11
+      peer_link: Port-Channel1
+    vlans:
+      10:
+        name: USERS
+      20:
+        name: SERVERS
+      30:
+        name: MANAGEMENT
+    interfaces:
+      Ethernet1:
+        description: MLAG Peer Link to switch-02
+        mode: trunk
+        allowed_vlans: all
+        channel_group: 1
+      Ethernet2:
+        description: MLAG Peer Link to switch-02
+        mode: trunk
+        allowed_vlans: all
+        channel_group: 1
+      Ethernet3:
+        description: Access Port for User A
+        mode: access
+        access_vlan: 10
+      Ethernet4:
+        description: Access Port for User B
+        mode: access
+        access_vlan: 10
+      Ethernet5:
+        description: Access Port for Server A
+        mode: access
+        access_vlan: 20
+      Ethernet6:
+        description: Access Port for Server B
+        mode: access
+        access_vlan: 20
+      Ethernet7:
+        description: Access Port for Management Device
+        mode: access
+        access_vlan: 30
+      Ethernet8:
+        description: Access Port for IP Phone A
+        mode: access
+        access_vlan: 10
+      Ethernet9:
+        description: Access Port for IP Phone B
+        mode: access
+        access_vlan: 10
+      Ethernet10:
+        description: Access Port for Wireless AP A
+        mode: trunk
+        allowed_vlans: 10,20,30
+      Ethernet11:
+        description: Access Port for Wireless AP B
+        mode: trunk
+        allowed_vlans: 10,20,30
+      Ethernet12:
+        description: Spare Port
+        mode: access
+        access_vlan: 10
+    port_channels:
+      Port-Channel1:
+        description: MLAG Peer Link
+        mode: trunk
+        allowed_vlans: all
+    spanning_tree:
+      mode: rapid-pvst
+      priority: 4096
+    syslog_servers:
+      - 192.168.1.200
+      - 192.168.1.201
+
+  switch-02:
+    hostname: switch-02
+    management_ip: 192.168.1.11/24
+    default_gateway: 192.168.1.1
+    domain_name: example.local
+    dns_servers:
+      - 8.8.8.8
+      - 8.8.4.4
+    ntp_servers:
+      - 192.168.1.100
+      - 192.168.1.101
+    mlag:
+      domain_id: mlag-domain-1
+      peer_address: 192.168.1.10
+      peer_link: Port-Channel1
+    vlans:
+      10:
+        name: USERS
+      20:
+        name: SERVERS
+      30:
+        name: MANAGEMENT
+    interfaces:
+      Ethernet1:
+        description: MLAG Peer Link to switch-01
+        mode: trunk
+        allowed_vlans: all
+        channel_group: 1
+      Ethernet2:
+        description: MLAG Peer Link to switch-01
+        mode: trunk
+        allowed_vlans: all
+        channel_group: 1
+      Ethernet3:
+        description: Access Port for User A
+        mode: access
+        access_vlan: 10
+      Ethernet4:
+        description: Access Port for User B
+        mode: access
+        access_vlan: 10
+      Ethernet5:
+        description: Access Port for Server A
+        mode: access
+        access_vlan: 20
+      Ethernet6:
+        description: Access Port for Server B
+        mode: access
+        access_vlan: 20
+      Ethernet7:
+        description: Access Port for Management Device
+        mode: access
+        access_vlan: 30
+      Ethernet8:
+        description: Access Port for IP Phone A
+        mode: access
+        access_vlan: 10
+      Ethernet9:
+        description: Access Port for IP Phone B
+        mode: access
+        access_vlan: 10
+      Ethernet10:
+        description: Access Port for Wireless AP A
+        mode: trunk
+        allowed_vlans: 10,20,30
+      Ethernet11:
+        description: Access Port for Wireless AP B
+        mode: trunk
+        allowed_vlans: 10,20,30
+      Ethernet12:
+        description: Spare Port
+        mode: access
+        access_vlan: 10
+    port_channels:
+      Port-Channel1:
+        description: MLAG Peer Link
+        mode: trunk
+        allowed_vlans: all
+    spanning_tree:
+      mode: rapid-pvst
+      priority: 8192
+    syslog_servers:
+      - 192.168.1.200
+      - 192.168.1.201

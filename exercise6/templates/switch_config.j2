@@ -1,0 +1,81 @@
+{% for switch_name, switch in payload["switches"].items() %}
+!
+! Configuration for {{ switch["hostname"] }}
+!
+hostname {{ switch["hostname"] }}
+!
+interface Management0
+  ip address {{ switch["management_ip"] }}
+  no shutdown
+!
+ip default-gateway {{ switch["default_gateway"] }}
+!
+ip domain-name {{ switch["domain_name"] }}
+!
+{% if switch["dns_servers"] %}
+ip name-server{% for dns in switch["dns_servers"] %} {{ dns }}{% endfor %}
+!
+{% endif %}
+{% if switch["ntp_servers"] %}
+ntp server{% for ntp in switch["ntp_servers"] %} {{ ntp }}{% endfor %}
+!
+{% endif %}
+{% if switch["syslog_servers"] %}
+logging{% for syslog in switch["syslog_servers"] %} {{ syslog }}{% endfor %}
+!
+{% endif %}
+
+! VLANs
+{% for vlan_id, vlan in switch["vlans"].items() %}
+vlan {{ vlan_id }}
+  name {{ vlan["name"] }}
+{% endfor %}
+!
+
+! Interfaces
+{% for intf_name, intf in switch["interfaces"].items() %}
+interface {{ intf_name }}
+  description {{ intf["description"] }}
+  switchport mode {{ intf["mode"] }}
+  {% if intf["mode"] == "access" %}
+  switchport access vlan {{ intf["access_vlan"] }}
+  {% elif intf["mode"] == "trunk" %}
+  switchport trunk allowed vlan {{ intf["allowed_vlans"] }}
+  {% endif %}
+  {% if intf.get("channel_group") %}
+  channel-group {{ intf["channel_group"] }} mode active
+  {% endif %}
+  no shutdown
+!
+{% endfor %}
+
+! Port-Channels
+{% if switch.get("port_channels") %}
+{% for pc_name, pc in switch["port_channels"].items() %}
+interface {{ pc_name }}
+  description {{ pc["description"] }}
+  switchport mode {{ pc["mode"] }}
+  switchport trunk allowed vlan {{ pc["allowed_vlans"] }}
+  no shutdown
+!
+{% endfor %}
+{% endif %}
+
+! Spanning-tree settings
+spanning-tree mode {{ switch["spanning_tree"]["mode"] }}
+spanning-tree priority {{ switch["spanning_tree"]["priority"] }}
+!
+
+! MLAG configuration
+{% if switch.get("mlag") %}
+mlag configuration
+  domain-id {{ switch["mlag"]["domain_id"] }}
+  local-interface {{ switch["mlag"]["peer_link"] }}
+  peer-address {{ switch["mlag"]["peer_address"] }}
+!
+{% endif %}
+
+! End of configuration for {{ switch["hostname"] }}
+!
+============================================================
+{% endfor %}
