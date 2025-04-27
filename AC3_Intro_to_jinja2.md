@@ -585,7 +585,13 @@ The plus sign preserves white space which would normally be removed. While its u
 # [fit] EXAMPLE
 
 
+---
+# Lets put it all together
 
+
+
+1. Template
+2. Python script
 
 ---
 
