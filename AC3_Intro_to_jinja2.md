@@ -1,6 +1,30 @@
 footer: NAF AutoCon3 © EIA 
 slidenumbers: true
 
+# Introduction
+
+At AutoCon2 NAF and EIA hosted a Jinja2 (Beginner to Intermediate) Templating workshop.
+
+Attendee feedback suggested the workshop was more Intermediate than beginner and so for AutoCon3 we have put together this Introductory Jinja2 course.
+
+It is available to the public.
+
+If you want to dive deeper into the power of templating and look at real world uses that are not related to generating configuration we hope you join us for the actual Workshop!
+
+---
+
+# [NAF AutoCon3 Workshops](https://networkautomation.forum/autocon3#workshop)
+
+
+[Workshop Details](https://networkautomation.forum/autocon3#workshop)
+
+- Explore real-world use cases 
+- Take away lessons learned and expert recommendations
+- Share in the collective experience and use cases of the course attendees
+
+![fit, right](images/WSC4_v2.jpg)
+
+---
 
 # Patterns & Templates
 
@@ -18,7 +42,7 @@ Enter the Python module **Jinja2**
 
 1. Browser & Internet Connection
 2. Basic Python Knowledge
-3[Google Colab account (Free)](https://colab.research.google.com/)
+3. [Google Colab account (Free)](https://colab.research.google.com/)
 4. UV installed ([Installing UV](https://docs.astral.sh/uv/getting-started/installation/))
 5. Clone or Download this repository [ac3 intro to jinja2](https://github.com/cldeluna/ac3_intro_to_jinja)
 
@@ -46,14 +70,15 @@ As Network Engineers we use templates daily.
 
 Jinja2 is the de facto standard in Network Automation workflows.
 
-^ 
-We need a "pattern engine" and 
+
+^
+We need a "pattern engine"  
 
 ---
 
 # Why are we here?
 
-You may be saying "..but I already have templates!"
+You may be saying *"..but I already have templates!"*
 
 I've see templates in:
 
@@ -80,7 +105,9 @@ I've see templates in:
 
 
 Jinja2 is an open source text-based templating engine (module) for the Python programming language. 
+
 It gained adoption due to is flexibility and Python-like syntax.  
+
 While it has its roots as a web/HTML templating language, it is well-suited for generating a wide range of text output formats.
 
 ---
@@ -96,8 +123,8 @@ While it has its roots as a web/HTML templating language, it is well-suited for 
 
 The Jinja2 Module
 The Execution Environment
-- Template
-- Data
+- **Template**
+- **Data**
 
 ![right, fit](images/J2_components.png)
 
@@ -189,7 +216,7 @@ Outside a control structure
 {{ mylist[0] }}
 {{ mydict.key }}  OR {{ mydict[key] }}
 ```
-*Note: Undefined variables render as empty strings by default!*
+**Note: Undefined variables render as empty strings by default!**
 
 ---
 
@@ -208,7 +235,7 @@ Inside a control structure
 {% if var > 1 %}
 ```
 
-Note the absence of the double curly braces when a variable is part of a control structure. 
+**Notice the absence of the double curly braces when a variable is part of a control structure.**
 
 ---
 
@@ -226,11 +253,11 @@ Comparison between Python and Jinja2 {% %}
 # Control Structures - Loops
 
 For Loop
-```
+**```
 {% for intf in intf_list %}
    {{ intf }}
 {% endfor %}
-```
+```**
 
 ---
 
@@ -238,29 +265,29 @@ For Loop
 
 IF/ELIF/ELSE
 
-```
+**```
 {% if ms_int > 8 %}
     Legacy stack is too big!
-{% elif ms_int > 0 and ms_int < 1 %}
+{% elif ms_int > 0 and ms_int < 9 %}
     Stack Size is Good
 {% else %}
     ERROR...BAD Max Stack Value {{ ms_int }}
 {% endif %}
-```
+```**
 
 ---
 
 # Assignments
 
 Define a variable within the Template
-```
+**```
 {% set myvalue = 2 %}
-```
+```**
 
-Cast to integer (using a built in Filter)
-```
+Assignment and cast to integer (using a built-in J2 Filter)
+**```
 {% set ms_int=maxstack | int %}
-```
+```**
 
 ---
 
@@ -723,8 +750,11 @@ So:
 
 # Great on line resources to get us started 
 
+### Recommended
     https://j2live.ttl255.com/
-    http://jinja.quantprogramming.com/
     https://nebula.packetcoders.io/j2-render/
+    
+^
+    http://jinja.quantprogramming.com/
     https://runcode.io/jinja-online-coding-platform (Requires Registration) (unstable)
 
