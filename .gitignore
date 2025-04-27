@@ -193,4 +193,4 @@ utils*
 *.json
 *.yaml
 *.csv
-*,yml
+*.yml
