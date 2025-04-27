@@ -1,0 +1,60 @@
+On line test 1:
+
+# Template
+My name is {{ name }}
+
+# Data
+{ "name": "Claudia" }
+
+On line test 2:
+
+# Template
+My list is: {{ mylistvar }}
+
+# Data
+{ "mylistvar":  [
+    "Prague",
+    "Brno",
+    "Ostrava",
+    "Plzeň",
+    "Liberec",
+    "Olomouc",
+    "Ústí nad Labem",
+    "Hradec Králové",
+    "Pardubice",
+    "Zlín",
+    "České Budějovice",
+    "Příbram",
+    "Karlovy Vary",
+    "Jihlava",
+    "Teplice",
+    "Děčín",
+    "Chomutov",
+    "Jablonec nad Nisou",
+    "Mladá Boleslav",
+    "Prostějov",
+    "Tábor",
+    "Trutnov",
+    "Opava",
+    "Havířov",
+    "Karviná"
+]}
+
+On line test 3:
+
+# Template
+{{ value }}
+{% if value == True %}
+    Explicitly true
+{% else %}
+  {{ value }} does not equal boolean True
+{% endif %}
+{% if value is true %}
+    value is a boolean that is true
+{% endif %}
+{% if value  %}
+    Checky for "truthy" ..it exists and has data
+{% endif %}
+
+# Data
+{ "value": True }
