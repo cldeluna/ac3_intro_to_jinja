@@ -337,21 +337,6 @@ These are not interchangeable across contexts:
 
 ![fit, right, original](images/j2_vs_py_true.png)
 
-
-^
-{{ value }}
-{% if value == True %} 
-    Explicitly true 
-{% else %}
-  {{ value }} does not equal boolean True
-{% endif %} 
-{% if value is true %} 
-    value is a boolean that is true 
-{% endif %}
-{% if value  %} 
-    Checky for "truthy" ..it exists and has data
-{% endif %}
-
 ---
 
 # [fit] WORKFLOW
@@ -363,7 +348,7 @@ These are not interchangeable across contexts:
 
 ---
 
-# Environoment Options
+# Environment Options
 
 Load your Templates from
 - A Python Package
@@ -588,15 +573,58 @@ The plus sign preserves white space which would normally be removed. While its u
 ---
 # Lets put it all together
 
-
+Lets generate switch configurations for an MLAG pair along with summary text which can be included in a Change Request ticket.
 
 1. Template
-2. Python script
+2. Payload
+3. Python script
 
 ---
 
-
 # Exercise 6 - Use Case
+
+```
+% cd exercise6
+
+% uv run gen_sw_configs.py 
+
+================================================================================
+Generating Switch Configs and Change Request Ticket Summary
+
+There are 3 templates available in the FileSystemLoader environment ['templates']:
+        - switch_config.j2
+        - switch_summary.j2
+        - switch_summary_oneliner.j2
+
+--------------------------------------------------------------------------------
+Generated config for switch-01 at ./output_configs/switch-01_config.txt
+Generated config for switch-02 at ./output_configs/switch-02_config.txt
+
+Completed generating configs for 2 switches.
+
+--------------------------------------------------------------------------------
+Ticket Summary:
+
+Switch Deployment Summary:
+- Hostname: switch-01
+- Management IP: 192.168.1.10/24
+
+
+Switch Deployment Summary:
+- Hostname: switch-02
+- Management IP: 192.168.1.11/24
+
+
+================================================================================
+
+```
+
+---
+
+# Conclusion
+
+Any text is fair game for Jinja2
+Don't limit yourself to configurations 
 
 ---
 
