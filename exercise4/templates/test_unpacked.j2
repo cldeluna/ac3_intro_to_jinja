@@ -1,0 +1,11 @@
+! Passing unnamed variable
+! In standalone Jinja (outside a framework like Django or Flask) there is not a built in way to access the
+! passed variables without naming them
+
+! Referencing the keys directly but you have to know what they are.
+! With a named variable you can dump the entire payload with a single command {{ cfg }}
+! In this case I know Im passing a dictionary with the keys list, maxstack, hostname, and mydict
+{{ list }}
+{{ maxstack }}
+{{ hostname }}
+{{ mydict }}

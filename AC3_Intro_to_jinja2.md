@@ -411,7 +411,7 @@ OR
 Template (Environment) Loading
 
 ```bash
-claudiadeluna in ~/ac3_intro_to_jinja/env_examples on main
+claudiadeluna in ~/ac3_intro_to_jinja/exercise3 on main
 % uv run j2_env_loader_examples.py
 
 --- Loading from STRING ---
@@ -432,7 +432,7 @@ This is the simple_template.j2 rendered by Jinja2.
 Available templates: (not applicable for direct file loading)
 Hello from Anywhere!
 This is the simple_template.j2 rendered by Jinja2.
-claudiadeluna in ~/ac3_intro_to_jinja/env_examples on main
+claudiadeluna in ~/ac3_intro_to_jinja/exercise3 on main
 %    
 ```
 
@@ -518,7 +518,50 @@ Note:  The online tools expected a dictionary and now you know why!
 
 # Exercise 4 - Data
 
+```
+% uv run payload_named_vs_unpacked.py
+dict_keys(['list', 'maxstack', 'hostname', 'mydict'])
 
+================================================================================
+
+----- Passing Un-named and Unpacked variable -----
+! Passing unnamed variable
+! In standalone Jinja (outside a framework like Django or Flask) there is not a built in way to access the
+! passed variables without naming them
+
+! Referencing the keys directly but you have to know what they are.
+! With a named variable you can dump the entire payload with a single command {{ cfg }}
+! In this case I know Im passing a dictionary with the keys list, maxstack, hostname, and mydict
+{{ list }}
+{{ maxstack }}
+{{ hostname }}
+{{ mydict }}
+
+Rendered Template:
+! Passing unnamed variable
+! In standalone Jinja (outside a framework like Django or Flask) there is not a built in way to access the
+! passed variables without naming them
+
+! Referencing the keys directly but you have to know what they are.
+! With a named variable you can dump the entire payload with a single command 
+! In this case I know Im passing a dictionary with the keys list, maxstack, hostname, and mydict
+[1, 2, 3, 4, 5]
+9
+myswitch-01
+{'subnet': '192.168.0.0/24', 'gw': '192.168.0.1', 'mask': '255.255.255.0'}
+
+================================================================================
+
+----- Passing named variable -----
+! Passing Named Payload
+{{ cfg }}
+
+
+Rendered Template:
+! Passing Named Payload
+{'list': [1, 2, 3, 4, 5], 'maxstack': 9, 'hostname': 'myswitch-01', 'mydict': {'subnet': '192.168.0.0/24', 'gw': '192.168.0.1', 'mask': '255.255.255.0'}}
+
+```
 
 ---
 
