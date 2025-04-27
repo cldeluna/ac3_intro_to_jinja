@@ -1,0 +1,99 @@
+# Named vs Unnamed Payload
+# https://nebula.packetcoders.io/j2-render/
+# https://j2live.ttl255.com
+
+
+# ---------------------------------------------------------
+On line example 1:
+# ---------------------------------------------------------
+
+# Template:
+?
+
+
+# Data:
+
+# YAML
+red: apple
+orange: orange
+yellow: banana
+green: kiwi
+blue: blueberry
+purple: grape
+pink: dragonfruit
+brown: date
+white: lychee
+black: blackberry
+
+
+# JSON
+
+{
+  "red": "apple",
+  "orange": "orange",
+  "yellow": "banana",
+  "green": "kiwi",
+  "blue": "blueberry",
+  "purple": "grape",
+  "pink": "dragonfruit",
+  "brown": "date",
+  "white": "lychee",
+  "black": "blackberry"
+}
+
+# ---------------------------------------------------------
+On line example 2:
+# ---------------------------------------------------------
+
+# Template:
+?
+
+
+# Data:
+
+# YAML
+fruit_colors:
+  red: apple
+  orange: orange
+  yellow: banana
+  green: kiwi
+  blue: blueberry
+  purple: grape
+  pink: dragonfruit
+  brown: date
+  white: lychee
+  black: blackberry
+
+ # JSON
+
+ {
+  "fruit_colors": {
+    "red": "apple",
+    "orange": "orange",
+    "yellow": "banana",
+    "green": "kiwi",
+    "blue": "blueberry",
+    "purple": "grape",
+    "pink": "dragonfruit",
+    "brown": "date",
+    "white": "lychee",
+    "black": "blackberry"
+  }
+}
+
+
+# ---------------------------------------------------------
+On line example 3:
+# ---------------------------------------------------------
+
+
+# Template:
+?
+
+# Data:
+
+[ 1,2,3,4,5]
+
+#Data error:
+
+#Provided data must be a dictionary.
