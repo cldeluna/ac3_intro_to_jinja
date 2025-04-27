@@ -1,9 +1,13 @@
+# Introduction to the on line tools
+
 # Copy/Paste for online exercise
 # https://nebula.packetcoders.io/j2-render/
 # https://j2live.ttl255.com
 
+# ---------------------------------------------------------
+On line example 1:
+# ---------------------------------------------------------
 
-On line test 1:
 
 # Template
 My name is {{ name }}
@@ -11,7 +15,9 @@ My name is {{ name }}
 # Data
 { "name": "Claudia" }
 
-On line test 2:
+# ---------------------------------------------------------
+On line example 2:
+# ---------------------------------------------------------
 
 # Template
 My list is: {{ mylistvar }}
@@ -45,7 +51,9 @@ My list is: {{ mylistvar }}
     "Karviná"
 ]}
 
-On line test 3:
+# ---------------------------------------------------------
+On line example 3:
+# ---------------------------------------------------------
 
 # Template
 {{ value }}
