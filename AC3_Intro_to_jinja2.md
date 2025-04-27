@@ -182,7 +182,7 @@ Ultimately Jinja2 will be a tool in your automation workflow
 
 ---
 
-# Variables
+# Variables by Themselves
 Outside a control structure
 ```
 {{ var }}
@@ -193,7 +193,7 @@ Outside a control structure
 
 ---
 
-# Variables 
+# Variables in a Jinja Statement
 
 
 Outside of a control structure
@@ -447,17 +447,28 @@ claudiadeluna in ~/ac3_intro_to_jinja/exercise3 on main
 
 Getting the data into your template and rendering can be confusing at first.
 
+By the time you are ready to render your template, your payload must be in the data structure expected by the template.
+
+---
+
+# Render with Data
+
+Your Template gets the data in the rendering step.
+
+```
+rendered_template_output = template_obj.render(cfg=payload_dict)
+```
+
 As the complexity of your payload increases, so will your template complexity.
 
 ---
 
-![left, 75%, original](images/j2_passdatainvar.jpg)
-![right,75%, original](images/j2_payload.jpg)
-
+![fit, left, original](images/j2_passdatainvar.jpg)
+![fit, right, original](images/j2_payload.jpg)
 
 ---
 
-# Python Unpacking Behavior
+# Python Unpacking Behavior \*\*
 
 This works with lists and dictionaries in Python
 When working with Jinja2 focus on putting your payload in dictionaries so you can be very explicit about picking out the exact data you want because you can referenc either by name.
@@ -469,27 +480,29 @@ When working with Jinja2 focus on putting your payload in dictionaries so you ca
 # Jinja 2 Unpacking Behavior
 
 
-```jinja
+```
 template.render(cfg_data) # equivalent to template.render(**cfg_data)
 ```
 
 Unpacking (\*\*) is the default behavior in Jinja2
-so if your cfg_data is a dictionary with one key/value pair 
+so if your **cfg_data** is a dictionary with one key/value pair 
 ```{“hostname”: “my_switch”}```
-{{ hostname }} in the template will render to “my\_switch”
+{{ hostname }} in the template will render to *my\_switch*
+{{ cfg\_data["hostname"] }} in the template will not be defined
+
 
 ---
 
 # Jinja 2 "Named" Data
 
-```jinja
+```
 template.render(cfg=cfg_data) 
 ```
-If you don’t assign your payload to a specific name (like cfg=cfg\_data), by default, Jinja2 will make the dictionary keys available as top-level variables in the template (vs. key/value pairs). 	
+If you don’t assign your payload to a specific name (like **cfg=cfg\_data**), by default, Jinja2 will make the dictionary keys available as top-level variables in the template (vs. key/value pairs). 	
 
 ```
 Given a dictionary {"fruit": "mango"}
-Its the difference between accessing your data as a dictionary
+It is the difference between accessing your data as a dictionary
 {{ cfg['fruit']}}
 or accessing your data as a top level variable 
 {{ fruit }}
@@ -499,16 +512,23 @@ or accessing your data as a top level variable
 
 # Jinja 2 Unpacking Behavior
 
-While using the “unpacking” default behavior can be a bit more streamlined, it inhibits the ability to dump the payload in the template if you are troubleshooting or unsure of the keys or structure.
-``` {{ cfg }} ```
-I find the ability to do this very useful, so I generally always assign my payload (script variable) to a template variable.
+While using the “unpacking” default behavior can be a bit more streamlined (less typing), it inhibits the ability to dump the payload in the template if you are troubleshooting or unsure of the keys or structure.
 
-script variable "cfg\_data" passed to template variable "cfg"
-```jinja
+**``` {{ cfg }} ```**
+
+--- 
+
+# Reccomendation 
+
+The ability to send your entire payload in a variable (dictionary) is very useful, so I generally always assign my payload a variable:
+
+script variable **"cfg\_data"** passed to template variable **"cfg"**
+
+You can make the template variable short to minimize typing.
+
+**```
 template.render(cfg=cfg_data) 
-```
-
-Note:  The online tools expected a dictionary and now you know why!
+```**
 
 ---
 
@@ -517,6 +537,7 @@ Note:  The online tools expected a dictionary and now you know why!
 ---
 
 # Exercise 4 - Data
+uv run **payload\_named\_vs\_unpacked.py**
 
 ```
 % uv run payload_named_vs_unpacked.py
@@ -574,9 +595,13 @@ Rendered Template:
 # Spaces and Line Feeds can be Tricky in Jinja2
 
 Control structures can add unwanted whitespace and empty lines.
+
 Often it will come down to what you can live with and the functional impact of any extraneous whitespace when you push your configs.
+
 - “One liners” can help
 - Jinja2 has several white space management options
+    - \+ and \-
+    - Environment knobs (Trim and Lstrip)
 
 --- 
 # Whitespace control with "-"
@@ -593,7 +618,7 @@ The minus sign can be used to control whitespace
 
 # Whitespace control with "+"
 
-The plus sign preserves white space which would normally be removed. While its use is less common it can be useful as an override particularly if you set whitespace controls when defining your environment.
+The plus sign preserves white space which would normally be removed. While it's use is less common it can be useful as an override particularly if you set whitespace controls when defining your environment.
 ```
 {%+ ... %} Preserve indentation
 ```
@@ -602,10 +627,23 @@ The plus sign preserves white space which would normally be removed. While its u
 
 # Whitespace control during Environment defintion
 
+```
+import jinja2
+
+env = jinja2.Environment( 
+     trim_blocks=True, # Remove first newline after a block  (
+     lstrip_blocks=True, # Remove leading spaces and tabs from block tags
+     keep_trailing_newline=True, # Preserve trailing newline in templates 
+)
+```
+By default these three settings are False
+
 
 ---
 
 # Exercise 5 - Whitespace
+
+Using an on line editor, lets play around with white space
 
 ---
 
