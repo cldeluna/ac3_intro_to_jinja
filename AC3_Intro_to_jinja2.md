@@ -22,7 +22,7 @@ If you want to dive deeper into the power of templating and look at real world u
 - Take away lessons learned and expert recommendations
 - Share in the collective experience and use cases of the course attendees
 
-![fit, right](images/WSC4_v2.jpg)
+![fit, right](images/WSC4_v3.jpg)
 
 ---
 
