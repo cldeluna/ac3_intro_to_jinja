@@ -42,7 +42,7 @@ Enter the Python module **Jinja2**
 
 1. Browser & Internet Connection
 2. Basic Python Knowledge
-3. [Google Colab account (Free)](https://colab.research.google.com/)
+3. [Google Colab account (Free)](https://colab.research.google.com/) or Python Interpreter
 4. UV installed ([Installing UV](https://docs.astral.sh/uv/getting-started/installation/))
 5. Clone or Download this repository [ac3 intro to jinja2](https://github.com/cldeluna/ac3_intro_to_jinja)
 
@@ -51,11 +51,10 @@ Enter the Python module **Jinja2**
 # What problem are we trying to solve?
 
 How many times have you seen something like this?
-
-```
+**```
 interface e1/0/1
   description <Enter interface description here>
-```
+```**
 We have to give up the idea of people filling values manually. 
 
 ---
@@ -210,7 +209,7 @@ Ultimately Jinja2 will be a tool in your automation workflow
 ---
 
 # Variables by Themselves
-Outside a control structure
+Outside a control structure (jinja2 block)
 ```
 {{ var }}
 {{ mylist[0] }}
@@ -223,7 +222,7 @@ Outside a control structure
 # Variables in a Jinja Statement
 
 
-Outside of a control structure
+Outside of a control structure (jinja2 block)
 
 ```
 {{ var }}
@@ -239,7 +238,7 @@ Inside a control structure
 
 ---
 
-# Control Structures 
+# Control Structures (jinja2 block)
 
 Comparison between Python and Jinja2 {% %}
 
@@ -731,11 +730,18 @@ Switch Deployment Summary:
 
 # Conclusion
 
-Any text is fair game for Jinja2
-Don't limit yourself to configurations 
+- Any text is fair game for Jinja2
+- Don't limit yourself to configurations 
+- Once you set up your little "template" factory your focus will be on the data and it's template. 
+- Re-use your environment and rendering steps (turn them into functions!)
+
+** Hope to see you in Prague where the fun really begins!**
 
 ---
 
+# [fit] EXTRAS
+
+---
 
 # Creating Templates with AI
 
