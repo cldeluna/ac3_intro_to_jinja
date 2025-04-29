@@ -1,0 +1,62 @@
+# Excercise 2
+
+# Copy/Paste for online exercise
+# https://nebula.packetcoders.io/j2-render/
+# https://j2live.ttl255.com
+
+
+# ---------------------------------------------------------
+On line example 1:
+# ---------------------------------------------------------
+
+# Template
+{{ value }}
+{% if value == True %}
+    Explicitly true
+{% else %}
+  {{ value }} does not equal boolean True
+{% endif %}
+{% if value is true %}
+    value is a boolean that is true
+{% endif %}
+{% if value  %}
+    Check for "truthy" ..it exists and has data
+{% endif %}
+
+# Data
+{ "value": True }
+
+{ "value": "" }
+
+{ "value": false }
+
+{ "value": 0 }
+
+
+# ---------------------------------------------------------
+On line example 2:
+# ---------------------------------------------------------
+
+import jinja2 as j2
+
+tmp_str = "I am in {{ city }}"
+
+
+t = j2.Template(tmp_str)
+result = t.render(city="Denver")
+print(result)
+
+mydict = {"city": "Los Angeles"}
+
+result2 = t.render(mydict)
+print(result2)
+
+t = j2.Template(tmp_str)
+result3 = t.render(payload=mydict)
+print(result3)
+
+
+tmp_str3 = "I am in {{ payload['city'] }}"
+t3 = j2.Template(tmp_str3)
+result4 = t3.render(payload=mydict)
+print(result4)

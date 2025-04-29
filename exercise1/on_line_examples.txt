@@ -50,24 +50,3 @@ My list is: {{ mylistvar }}
     "Havířov",
     "Karviná"
 ]}
-
-# ---------------------------------------------------------
-On line example 3:
-# ---------------------------------------------------------
-
-# Template
-{{ value }}
-{% if value == True %}
-    Explicitly true
-{% else %}
-  {{ value }} does not equal boolean True
-{% endif %}
-{% if value is true %}
-    value is a boolean that is true
-{% endif %}
-{% if value  %}
-    Checky for "truthy" ..it exists and has data
-{% endif %}
-
-# Data
-{ "value": True }
