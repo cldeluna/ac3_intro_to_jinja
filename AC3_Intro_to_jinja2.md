@@ -1,11 +1,11 @@
 footer: NAF AutoCon3 © EIA 
 slidenumbers: true
 
-# Introduction
+# Provenance
 
-At AutoCon2 NAF and EIA hosted a Jinja2 (Beginner to Intermediate) Templating workshop.
+At AutoCon2, NAF and EIA hosted a Jinja2 (Beginner to Intermediate) Templating workshop.
 
-Attendee feedback suggested the workshop was more Intermediate than beginner and so for AutoCon3 we have put together this Introductory Jinja2 course.
+Attendee feedback suggested the workshop was more intermediate than beginner and so for AutoCon3 we have put together this Introductory Jinja2 course.
 
 It is available to the public.
 
@@ -26,6 +26,18 @@ If you want to dive deeper into the power of templating and look at real world u
 
 ---
 
+# Course Requirements
+
+1. Browser & Internet Connection
+   - [TTL255 J2Live](https://j2live.ttl255.com)
+   - [PacketCoders J2Render](https://nebula.packetcoders.io/j2-render/)
+2. Basic Python Knowledge
+3. [Google Colab account (Free)](https://colab.research.google.com/) or Python Interpreter
+4. UV installed ([Installing UV](https://docs.astral.sh/uv/getting-started/installation/))
+5. Clone or Download this repository [ac3 intro to jinja2](https://github.com/cldeluna/ac3_intro_to_jinja)
+
+---
+
 # Patterns & Templates
 
 *...have been around for a long time!*
@@ -35,27 +47,6 @@ Web Development has given us some amazing tools to manipulate text (HTML) and do
 Enter the Python module **Jinja2**
 
 ![fit, right](images/patterns2.png)
-
----
-
-# Course Requirements
-
-1. Browser & Internet Connection
-2. Basic Python Knowledge
-3. [Google Colab account (Free)](https://colab.research.google.com/) or Python Interpreter
-4. UV installed ([Installing UV](https://docs.astral.sh/uv/getting-started/installation/))
-5. Clone or Download this repository [ac3 intro to jinja2](https://github.com/cldeluna/ac3_intro_to_jinja)
-
----
-
-# What problem are we trying to solve?
-
-How many times have you seen something like this?
-**```
-interface e1/0/1
-  description <Enter interface description here>
-```**
-We have to give up the idea of people filling values manually. 
 
 ---
 # Why should I care about this?
@@ -86,6 +77,18 @@ I've see templates in:
 - PowerPoint
 - Excel
 - *The last device I configured*
+
+---
+
+# What problem are we trying to solve?
+
+How many times have you seen something like this?
+**```
+interface e1/0/1
+  description <Enter interface description here>
+```**
+We have to give up the idea of people filling values manually. 
+
 
 ---
 
