@@ -2,6 +2,8 @@
 
 Jinja2 primer for the NAF AutoCon3 Templating Workshop [https://networkautomation.forum/autocon3#workshop](https://networkautomation.forum/autocon3#workshop)
 
+[Course Videos](https://vimeo.com/showcase/11692825)
+
 ![WSC4](images/WSC5_cdleia.jpg)
 
 ## Executing the scripts in this repository
